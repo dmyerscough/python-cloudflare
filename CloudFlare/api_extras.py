@@ -21,7 +21,7 @@ def api_extras(self, extras=None):
                 continue
             try:
                 parts[nn]
-            except:
+            except Exception:
                 parts.append([])
             parts[nn].append(element)
 
@@ -38,7 +38,7 @@ def api_extras(self, extras=None):
                         self.base, '/'.join(element_path), '/'.join(parts[1])))
                 current = m
                 continue
-            except:
+            except Exception:
                 pass
             # does not exist
             if element == parts[0][-1] and len(parts) > 1:

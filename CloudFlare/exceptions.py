@@ -1,9 +1,12 @@
 from __future__ import (absolute_import, unicode_literals,
                         division, print_function)
 
+from future.builtins import *
+
 
 class CloudFlareError(Exception):
     def __init__(self, code, message):
+        super().__init__()
         self.code = code
         self.message = message
 

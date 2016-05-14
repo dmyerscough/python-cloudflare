@@ -30,7 +30,7 @@ class CloudFlare(object):
             self.BASE_URL = base_url
 
             if debug:
-                self.logger = logger.Logger(debug).getLogger()
+                self.logger = Logger(debug).getLogger()
             else:
                 self.logger = None
 
@@ -108,11 +108,12 @@ class CloudFlare(object):
                 self.logger.debug("Call: url is: %s" % (str(url)))
                 self.logger.debug("Call: method is: %s" % (str(method)))
                 self.logger.debug("Call: headers %s" % (
-                    str(utils.sanitize_secrets(headers))))
+                    str(sanitize_secrets(headers))))
 
             if (method is None) or (api_call_part1 is None):
                 # should never happen
                 raise CloudFlareInternalError(
+                    None,
                     'You must specify a method and endpoint')
 
             method = method.upper()
@@ -304,11 +305,11 @@ class CloudFlare(object):
         [conf_email, conf_token, conf_certtoken, extras] = read_configs()
 
         if email is None:
-                email = conf_email
+            email = conf_email
         if token is None:
-                token = conf_token
+            token = conf_token
         if certtoken is None:
-                certtoken = conf_certtoken
+            certtoken = conf_certtoken
 
         # Removed: There are cases where you don't need an email and token
         # if email is None or token is None:

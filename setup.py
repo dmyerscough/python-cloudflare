@@ -21,9 +21,9 @@ setup(
     install_requires=['requests', 'future'],
     keywords='cloudflare',
     entry_points={
-	'console_scripts': [
-	    'cli4 = cli4.__main__:main'
-	]
+        'console_scripts': [
+            'cli4 = cli4.__main__:main'
+        ]
     },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -33,6 +33,9 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ]
 )
 
