@@ -18,7 +18,7 @@ setup(
     url='https://github.com/cloudflare/python-cloudflare',
     license='MIT',
     packages=['cli4']+find_packages(),
-    install_requires=['requests'],
+    install_requires=['requests', 'future'],
     keywords='cloudflare',
     entry_points={
 	'console_scripts': [

@@ -1,9 +1,12 @@
+from __future__ import (absolute_import, unicode_literals,
+                        division, print_function)
+
 
 def sanitize_secrets(secrets):
     redacted_phrase = 'REDACTED'
 
     if secrets is None:
-	return None
+        return None
 
     secrets_copy = secrets.copy()
     if 'password' in secrets_copy:
