@@ -1,10 +1,13 @@
+from __future__ import (absolute_import, unicode_literals,
+                        division, print_function)
 
 import logging
 
 DEBUG = 0
 INFO = 1
 
-class Logger:
+
+class Logger(object):
     def __init__(self, level):
         self.logger_level = self._get_logging_level(level)
 
@@ -23,7 +26,8 @@ class Logger:
         ch.setLevel(self.logger_level)
 
         # create formatter
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
         # add formatter to ch
         ch.setFormatter(formatter)
@@ -34,7 +38,7 @@ class Logger:
         return logger
 
     def _get_logging_level(self, level):
-        if level == True:
+        if level is True:
             return logging.DEBUG
         else:
             return logging.INFO
