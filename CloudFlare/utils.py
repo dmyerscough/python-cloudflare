@@ -3,7 +3,7 @@ from __future__ import (absolute_import, unicode_literals,
 
 
 def sanitize_secrets(secrets):
-	redacted_phrase = 'REDACTED'
+    redacted_phrase = 'REDACTED'
 
     if secrets is None:
         return None
