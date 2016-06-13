@@ -1,16 +1,15 @@
+from __future__ import (absolute_import, unicode_literals,
+                        division, print_function)
 
 import logging
 
 DEBUG = 0
 INFO = 1
 
-class Logger:
-	def __init__(self, level):
-		self.logger_level = self._get_logging_level(level)
-		#logging.basicConfig(level=self.logger_level)
-		request_logger = logging.getLogger("requests.packages.urllib3")
-		request_logger.setLevel(self.logger_level)
-		request_logger.propagate = level
+
+class Logger(object):
+    def __init__(self, level):
+        self.logger_level = self._get_logging_level(level)
 
 	def getLogger(self):
 		# create logger
@@ -26,13 +25,19 @@ class Logger:
 		# add formatter to ch
 		ch.setFormatter(formatter)
 
-		# add ch to logger
-		logger.addHandler(ch)
+        # create formatter
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 		return logger
 
-	def _get_logging_level(self, level):
-		if level == True:
-			return logging.DEBUG
-		else:
-			return logging.INFO
+        # add ch to logger
+        logger.addHandler(ch)
+
+        return logger
+
+    def _get_logging_level(self, level):
+        if level is True:
+            return logging.DEBUG
+        else:
+            return logging.INFO
