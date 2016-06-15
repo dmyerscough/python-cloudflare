@@ -7,7 +7,7 @@ with open('README.rst') as f:
 	long_description = f.read()
 
 setup(
-    name='cloudflare',
+    name='python-cloudflare3',
     version='1.0.2',
     description='Python wrapper for the CloudFlare v4 API',
     long_description=long_description,
@@ -15,7 +15,7 @@ setup(
     author_email='martin@cloudflare.com',
     maintainer='Martin J. Levy',
     maintainer_email='mahtin@mahtin.com',
-    url='https://github.com/cloudflare/python-cloudflare',
+    url='https://github.com/dmyerscough/python-cloudflare',
     license='MIT',
     packages=['cli4']+find_packages(),
     install_requires=['requests', 'future'],
